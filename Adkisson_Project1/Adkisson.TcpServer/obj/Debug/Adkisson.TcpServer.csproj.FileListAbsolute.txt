@@ -1,0 +1,16 @@
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\bin\Debug\Adkisson.TcpServer.exe.config
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\bin\Debug\Adkisson.TcpServer.exe
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\bin\Debug\Adkisson.TcpServer.pdb
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\bin\Debug\Adkisson.Sockets.dll
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\bin\Debug\Adkisson.Sockets.pdb
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\obj\Debug\Adkisson.TcpServer.csprojResolveAssemblyReference.cache
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\obj\Debug\Adkisson.TcpServer.exe
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.TcpServer\obj\Debug\Adkisson.TcpServer.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\bin\Debug\Adkisson.TcpServer.exe.config
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\obj\Debug\Adkisson.TcpServer.exe
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\obj\Debug\Adkisson.TcpServer.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\bin\Debug\Adkisson.TcpServer.exe
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\bin\Debug\Adkisson.TcpServer.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\bin\Debug\Adkisson.Sockets.dll
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\bin\Debug\Adkisson.Sockets.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.TcpServer\obj\Debug\Adkisson.TcpServer.csprojResolveAssemblyReference.cache

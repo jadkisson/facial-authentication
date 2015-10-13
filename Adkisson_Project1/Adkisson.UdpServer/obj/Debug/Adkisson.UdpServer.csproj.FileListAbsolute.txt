@@ -1,0 +1,16 @@
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\bin\Debug\Adkisson.UdpServer.exe.config
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\bin\Debug\Adkisson.UdpServer.exe
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\bin\Debug\Adkisson.UdpServer.pdb
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\bin\Debug\Adkisson.Sockets.dll
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\bin\Debug\Adkisson.Sockets.pdb
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\obj\Debug\Adkisson.UdpServer.csprojResolveAssemblyReference.cache
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\obj\Debug\Adkisson.UdpServer.exe
+C:\School\CS6027 Networking\Projects\Project1\Adkisson.UdpServer\obj\Debug\Adkisson.UdpServer.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\bin\Debug\Adkisson.UdpServer.exe.config
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\obj\Debug\Adkisson.UdpServer.exe
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\obj\Debug\Adkisson.UdpServer.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\bin\Debug\Adkisson.UdpServer.exe
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\bin\Debug\Adkisson.UdpServer.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\bin\Debug\Adkisson.Sockets.dll
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\bin\Debug\Adkisson.Sockets.pdb
+C:\School\CS6027 Networking\Projects\Adkisson_Project1\Adkisson.UdpServer\obj\Debug\Adkisson.UdpServer.csprojResolveAssemblyReference.cache
