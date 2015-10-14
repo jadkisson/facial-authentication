@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adkisson.TcpServer", "Adkis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adkisson.TcpClient", "Adkisson.TcpClient\Adkisson.TcpClient.csproj", "{F8685B6B-D338-48B5-9C9F-FFC4F536384C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adkisson.UdpClient", "Adkisson.UdpClient\Adkisson.UdpClient.csproj", "{10FACAE9-57EE-4185-BE73-4594DEEE06CF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adkisson.UdpServer", "Adkisson.UdpServer\Adkisson.UdpServer.csproj", "{3F268271-65A3-44AE-B29C-E3F5E81BB1D7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{F8685B6B-D338-48B5-9C9F-FFC4F536384C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8685B6B-D338-48B5-9C9F-FFC4F536384C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8685B6B-D338-48B5-9C9F-FFC4F536384C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10FACAE9-57EE-4185-BE73-4594DEEE06CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10FACAE9-57EE-4185-BE73-4594DEEE06CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10FACAE9-57EE-4185-BE73-4594DEEE06CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10FACAE9-57EE-4185-BE73-4594DEEE06CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F268271-65A3-44AE-B29C-E3F5E81BB1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F268271-65A3-44AE-B29C-E3F5E81BB1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F268271-65A3-44AE-B29C-E3F5E81BB1D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F268271-65A3-44AE-B29C-E3F5E81BB1D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

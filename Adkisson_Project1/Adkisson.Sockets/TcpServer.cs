@@ -11,31 +11,30 @@
 //==========================================================
 
 using System;
+using System.Collections.Concurrent;
 using System.Net;
-using System.Net.Sockets;
-using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Adkisson.Sockets
 {
     /// <summary>
-    /// Concrete class to start a TCP server instance. Requires a host IP address and port to start.
-    /// Use Server.Factory to request an instance of this class.
+    ///     Concrete class to start a TCP server instance. Requires a host IP address and port to start.
+    ///     Use Server.Factory to request an instance of this class.
     /// </summary>
     public class TcpServer : Server
     {
-        internal TcpServer(ITransport protocol, IPAddress hostIpAddress, int port) : base(protocol, hostIpAddress, port)
+        internal TcpServer(ITransport protocol, IPAddress hostIpAddress, int port)
+            : base(protocol, hostIpAddress, port)
         {
+            Connections = 0;
         }
 
-        /// <summary>
-        /// The TCP socket opened to communicate with the client. Not the same as the ListenSocket, which
-        /// welcomes new connections.
-        /// </summary>
-        protected Socket ClientSocket { get; set; }
+        protected int Connections { get; set; }
 
         /// <summary>
-        /// Starts the TCP server loop listening for client connections on the Server Socket, then
-        /// communicating with the client on that client's TCP Connection Socket.
+        ///     Starts the TCP server loop listening for client connections on the Server Socket, then
+        ///     communicating with the client on that client's TCP Connection Socket.
         /// </summary>
         public override void Start()
         {
@@ -43,34 +42,52 @@ namespace Adkisson.Sockets
             ListenSocket.Bind(IpEndPoint);
             ListenSocket.Listen(10);
             Console.WriteLine("TCP Server Socket awaiting connection from client");
+            Console.WriteLine("Press ESC to stop this server");
 
-            Console.WriteLine("Send 'stop' message to stop this server.");
+            var shutdownToken = new CancellationTokenSource();
+            var socketTasks = new ConcurrentBag<Task>();
 
-            //loop to listen for new connections. if msg received is stop, then server will be stopped
-            //after replying to client.
-            string msg = null;
-            while (msg == null || !msg.Equals("stop", StringComparison.InvariantCultureIgnoreCase))
+            var serverSocketTask = Task.Run(() =>
             {
-                Console.WriteLine("\r\nTCP Server Socket waiting at {0}", ListenSocket.LocalEndPoint);
-                ClientSocket = ListenSocket.Accept();
-                Console.WriteLine("\r\nTCP Connection Socket established with {0}", ClientSocket.RemoteEndPoint);
+                //loop to listen for TCP connections while token isn't
+                while (!shutdownToken.IsCancellationRequested)
+                {
+                    try
+                    {
+                        Console.WriteLine("\r\nTCP Server Socket waiting at {0}", ListenSocket.LocalEndPoint);
 
-                var buffer = new byte[Transport.BufferSize];
-                var len = ClientSocket.Receive(buffer);
-                msg = Encoding.ASCII.GetString(buffer, 0, len);
+                        var newClientSocket = ListenSocket.Accept();
 
-                Console.WriteLine("TCP Message received from {0}: {1}", ClientSocket.RemoteEndPoint, msg);
+                        Connections++;
+                        Console.WriteLine("\r\nConnections: {0}", Connections);
+                        var client = new TcpClientConnection(newClientSocket, Transport.BufferSize);
+                        var clientTask = Task.Factory.StartNew(() =>
+                        {
+                            client.Execute();
+                            Task toRemove;
+                            socketTasks.TryTake(out toRemove); //remove from concurrent bag
+                            Connections--;
+                            Console.WriteLine("\r\nConnections: {0}", Connections);
+                        }, shutdownToken.Token);
+                        socketTasks.Add(clientTask);
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        //time to shutdown
+                    }
+                }
+            }, shutdownToken.Token); //cancel this task when token is flagged
+            socketTasks.Add(serverSocketTask);
 
-                // Echo the message back to the client IN UPPERCASE.
-                msg = msg.ToUpper();
-                Console.WriteLine("TCP Returned message to {0}: {1}", ClientSocket.RemoteEndPoint, msg);
-                ClientSocket.Send(Encoding.ASCII.GetBytes(msg));
-
-                // Close connection socket, server socket remains open
-                Console.WriteLine("TCP Connection Socket to {0} closed", ClientSocket.RemoteEndPoint);
-                ClientSocket.Shutdown(SocketShutdown.Both);
-                ClientSocket.Close();
+            //wait for connections
+            while (Console.ReadKey(true).Key != ConsoleKey.Escape)
+            {
             }
+
+            //no more waiting... shutdown
+            Console.WriteLine("Stopping... closing open TCP connections");
+            shutdownToken.CancelAfter(1000); //give tasks 1000ms to finish - then throw them if necessary
+            Task.WaitAll(socketTasks.ToArray(), 1000); //wait up to 5 seconds for all tasks to end, then give up
 
             Stop();
         }
